@@ -4,20 +4,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="stylesheet" href="/myapp/templates/myapp/styles_index.css">
   <title>Enquetes</title>
 </head>
 <body>
-  {% if latest_question_list %}
-      <ul>
-      {% for question in latest_question_list %}
-        <li><a href="{% url 'myapp:vote' question.id %}">{{ question.question_text }}</a></li>
+  <div class="border">
+    <div class="content"></div>
+      <section name="intro">
+        <div class="container_h1">
+          <h1><span>print(</span>Hello World.<span>)</span></h1>
+        </div>
 
-     {%endfor%}
-     </ul>
-  {%else%}
-    <p>Não há enquetes disponíveis</p>
-  {%endif%}
+        <div class="container_p">
+          <p>Queremos saber:</p>
+        </div>
+      </section>
+      <div class="container_questions">
+        {% if latest_question_list %}
+            <ul>
+            {% for question in latest_question_list %}
+            <nav><li><a href="{% url 'myapp:vote' question.id %}">{{ question.question_text }}</a></li></nav>
 
+          {%endfor%}
+          </ul>
+        {%else%}
+          <p>Não há enquetes disponíveis</p>
+        {%endif%}
+      </div>
+    </div>
+  </div>
 </body>
 </html>
